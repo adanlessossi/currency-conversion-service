@@ -15,10 +15,11 @@ import com.businessdecision.microservices.currencyconversionservice.domain.Curre
  *
  */
 //@FeignClient(name = "currency-exchange-service", url = "http://localhost:8000")
-@FeignClient(name = "currency-exchange-service")
+// @FeignClient(name = "currency-exchange-service")
+@FeignClient(name = "netflix-zuul-api-gateway-server")
 @RibbonClient(name = "currency-exchange-service")
 public interface CurrencyExchangeServiceProxy {
 
-	@GetMapping("/currency-exchange/from/{from}/to/{to}")
+	@GetMapping("/currency-exchange-service/currency-exchange/from/{from}/to/{to}")
 	public CurrencyConversionBean getExchangeValue(@PathVariable String from, @PathVariable String to);
 }
